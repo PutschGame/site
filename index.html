@@ -10,19 +10,22 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
             background: #1a1a2e;
         }
 
         .landing-container {
             position: relative;
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             background: radial-gradient(circle at center, #2a2a4a 0%, #1a1a2e 100%);
+            padding: 2rem 1rem;
+            box-sizing: border-box;
         }
 
         .logo-container {
@@ -181,9 +184,62 @@
 
         @media (max-width: 600px) {
             .game-info {
-                flex-direction: column;
+                flex-direction: row;
                 gap: 1rem;
-                padding: 1rem;
+                padding: 0.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .info-icon {
+                width: 30px;
+                height: 30px;
+            }
+
+            .info-item {
+                gap: 0.3rem;
+            }
+
+            .info-item span {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .game-info {
+                gap: 0.5rem;
+            }
+
+            .info-icon {
+                width: 25px;
+                height: 25px;
+            }
+
+            .info-item span {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .site-logo {
+                height: 200px;
+                margin-bottom: 1.5rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+                padding: 0 1rem;
+                text-align: center;
+            }
+
+            .discover-btn {
+                padding: 0.8rem 2rem;
+                font-size: 1.1rem;
+                margin-top: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .landing-container {
+                padding: 4rem 1rem;
             }
         }
     </style>
