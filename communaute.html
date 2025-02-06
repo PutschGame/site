@@ -5,17 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Communauté PUTSCH</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .header-logo {
+            height: 50px;
+            width: auto;
+            margin: 0;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 12px rgba(255, 140, 0, 0.3));
+            animation: headerGlowPulse 4s ease-in-out infinite;
+        }
+
+        .header-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        header {
+            background: var(--background-color);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tagline {
+            color: var(--text-color);
+            font-family: 'Crimson Text', serif;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        @keyframes headerGlowPulse {
+            0%, 100% {
+                filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6)) 
+                        drop-shadow(0 0 12px rgba(255, 140, 0, 0.3));
+            }
+            50% {
+                filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.7))
+                        drop-shadow(0 0 20px rgba(255, 140, 0, 0.4))
+                        drop-shadow(0 0 25px rgba(255, 69, 0, 0.2));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo-container {
+                gap: 1rem;
+            }
+            
+            .tagline {
+                font-size: 0.9rem;
+            }
+
+            .header-logo {
+                height: 40px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header class="minimal-header">
+    <header>
         <div class="header-content">
             <div class="logo-container">
-                <h1>PUTSCH</h1>
-                <span class="logo-separator"></span>
+                <img src="images/logojaune.svg" alt="PUTSCH" class="header-logo">
                 <p class="tagline">Le jeu de cartes où la stratégie rencontre la trahison</p>
             </div>
             <nav class="minimal-nav">
-                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="game.html" class="nav-link">règles</a>
                 <a href="commande.html" class="nav-link">Commander</a>
             </nav>
         </div>
@@ -75,7 +141,7 @@
 
         <section class="section-main share-experience">
             <h2>Partagez votre expérience</h2>
-            <div class="feedback-cta">
+           <section class="section-main reviews-section">
                 <p>Votre avis est important pour nous aider à améliorer le jeu !</p>
                 <a href=https://docs.google.com/forms/d/e/1FAIpQLSdV22O-tnlpq2SFyMsFRaOMtcSWzGHBmOQWgxrk61Oy_2oAtw/viewform?pli=1" target="_blank" class="cta-button">Donner mon avis</a>
             </div>
