@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#FFD700" d="M20 4c-3.3 0-6 2.7-6 6 0 2.6 1.7 4.8 4 5.7V20h4v-4.3c2.3-.8 4-3.1 4-5.7 0-3.3-2.7-6-6-6zm-4 18v4h8v-4h-8zm0 6v4h8v-4h-8zm-4-6h2v14h-2v-14zm14 0h2v14h-2v-14z"/>
+    <text x="20" y="36" fill="#FFD700" font-family="Arial" font-size="10" text-anchor="middle">12+</text>
+</svg>
