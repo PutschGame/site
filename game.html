@@ -144,6 +144,147 @@
                 margin-top: 2rem;
             }
         }
+
+        /* Styles pour la modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            overflow: auto;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            position: relative;
+            margin: auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            max-height: 90vh;
+            overflow-y: auto;
+            scrollbar-width: none; /* Pour Firefox */
+            -ms-overflow-style: none; /* Pour Internet Explorer et Edge */
+        }
+
+        .modal-content::-webkit-scrollbar {
+            display: none; /* Pour Chrome, Safari et Opera */
+        }
+
+        .modal-video-container {
+            width: 100%;
+            position: relative;
+            padding-top: 136.36%;
+            max-height: 50vh;
+        }
+
+        .modal-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .modal-description {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .modal-description h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        /* Styles pour la navigation */
+        .modal-nav {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            box-sizing: border-box;
+            pointer-events: none;
+        }
+
+        .nav-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 20px 15px;
+            cursor: pointer;
+            border-radius: 10px;
+            width: 50px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            pointer-events: auto;
+            font-size: 24px;
+        }
+
+        .nav-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .prev-card {
+            margin-right: 10px;
+        }
+
+        .next-card {
+            margin-left: 10px;
+        }
+
+        /* Style pour le swipe */
+        .modal {
+            touch-action: pan-y pinch-zoom;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 10px;
+                width: 95%;
+            }
+
+            .modal-description {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+
+            .nav-button {
+                padding: 15px 10px;
+                width: 40px;
+                height: 60px;
+                font-size: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -359,6 +500,245 @@ Si aucun rebelle n'a réuni une région complète après les deux manches (16 to
 
     </main>
 
+    <!-- Modals pour chaque carte -->
+    <div class="modal" id="card1-modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <div class="modal-video-container">
+                <video class="modal-video" loop muted playsinline>
+                    <source src="videos/putsch.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+            <div class="modal-description">
+               
+                <p>Coût : 2 ors (3 si réutilisé)<br>
+                Annoncez le nom du rebelle visé quand vous révélez cette carte. Échanger tous vos territoires avec ceux du joueur visé. Cette carte est priortaire sur toutes les autres, mais s'il y a plusieurs cartes PUTSCH jouées au même tour, tous les putsch sont annulés.</p>
+            </div>
+            <div class="modal-nav">
+                <button class="nav-button prev-card">&#10094;</button>
+                <button class="nav-button next-card">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="card2-modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <div class="modal-video-container">
+                <video class="modal-video" loop muted playsinline>
+                    <source src="videos/eclaireur.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+            <div class="modal-description">
+             
+                <p>Annoncez le nom du joueur visé quand vous révélez cette carte. Regarder l'ensemble des territoires d'un autre joueur, puis retournez en un face visible parmi eux.</p>
+            </div>
+            <div class="modal-nav">
+                <button class="nav-button prev-card">&#10094;</button>
+                <button class="nav-button next-card">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="card3-modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <div class="modal-video-container">
+                <video class="modal-video" loop muted playsinline>
+                    <source src="videos/cachette.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+            <div class="modal-description">
+              
+                <p>Vous êtes protégé des cartes BRUTE et PUTSCH à ce tour.</p>
+            </div>
+            <div class="modal-nav">
+                <button class="nav-button prev-card">&#10094;</button>
+                <button class="nav-button next-card">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="card4-modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <div class="modal-video-container">
+                <video class="modal-video" loop muted playsinline>
+                    <source src="videos/brute.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+            <div class="modal-description">
+              
+                <p>Coût : 1 or<br>
+                Annoncez le nom du rebelle visé quand vous révélez cette carte. Prenez lui un territoire. S'il possède au moins un territoire face cachée, il choisit le territoire. Si tous les territoires sont révélés, c'est vous qui choisissez le territoire récupéré.</p>
+            </div>
+            <div class="modal-nav">
+                <button class="nav-button prev-card">&#10094;</button>
+                <button class="nav-button next-card">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="card5-modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <div class="modal-video-container">
+                <video class="modal-video" loop muted playsinline>
+                    <source src="videos/coffre.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+            <div class="modal-description">
+              
+                <p>Vous récupérez une pièce d'or du royaume !</p>
+            </div>
+            <div class="modal-nav">
+                <button class="nav-button prev-card">&#10094;</button>
+                <button class="nav-button next-card">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="card6-modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <div class="modal-video-container">
+                <video class="modal-video" loop muted playsinline>
+                    <source src="videos/discours.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+            <div class="modal-description">
+                
+                <p>Si aucun autre rebelle ne vous a visé à ce tour, piochez un territoire et laissez le face cachée.</p>
+            </div>
+            <div class="modal-nav">
+                <button class="nav-button prev-card">&#10094;</button>
+                <button class="nav-button next-card">&#10095;</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentCardIndex = 0;
+        const totalCards = 6;
+
+        // Fonction pour ouvrir la modal
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            const video = modal.querySelector('video');
+            currentCardIndex = parseInt(modalId.replace('card', '').replace('-modal', '')) - 1;
+            
+            modal.classList.add('show');
+            video.play();
+            
+            // Empêcher le défilement du body
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Fonction pour fermer la modal
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            const video = modal.querySelector('video');
+            
+            modal.classList.remove('show');
+            video.pause();
+            
+            // Réactiver le défilement du body
+            document.body.style.overflow = 'auto';
+        }
+
+        // Navigation entre les cartes
+        function navigateCards(direction) {
+            const currentModal = document.querySelector('.modal.show');
+            if (!currentModal) return;
+
+            closeModal(currentModal.id);
+            
+            currentCardIndex = (currentCardIndex + direction + totalCards) % totalCards;
+            const nextModalId = `card${currentCardIndex + 1}-modal`;
+            
+            openModal(nextModalId);
+        }
+
+        // Event listeners pour la navigation
+        document.querySelectorAll('.prev-card').forEach(btn => {
+            btn.addEventListener('click', () => navigateCards(-1));
+        });
+
+        document.querySelectorAll('.next-card').forEach(btn => {
+            btn.addEventListener('click', () => navigateCards(1));
+        });
+
+        // Swipe detection
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            modal.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const swipeLength = touchEndX - touchStartX;
+            
+            if (Math.abs(swipeLength) > swipeThreshold) {
+                if (swipeLength > 0) {
+                    navigateCards(-1); // Swipe droite -> carte précédente
+                } else {
+                    navigateCards(1); // Swipe gauche -> carte suivante
+                }
+            }
+        }
+
+        // Ajouter les event listeners pour les cartes
+        document.querySelectorAll('.floating-card').forEach((card, index) => {
+            card.addEventListener('click', () => {
+                openModal(`card${index + 1}-modal`);
+            });
+        });
+
+        // Ajouter les event listeners pour fermer les modals
+        document.querySelectorAll('.close-modal').forEach(closeBtn => {
+            closeBtn.addEventListener('click', (e) => {
+                const modal = e.target.closest('.modal');
+                closeModal(modal.id);
+            });
+        });
+
+        // Fermer la modal en cliquant en dehors du contenu
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        });
+
+        // Navigation avec les touches du clavier
+        document.addEventListener('keydown', (e) => {
+            const modal = document.querySelector('.modal.show');
+            if (!modal) return;
+
+            if (e.key === 'ArrowLeft') {
+                navigateCards(-1);
+            } else if (e.key === 'ArrowRight') {
+                navigateCards(1);
+            } else if (e.key === 'Escape') {
+                closeModal(modal.id);
+            }
+        });
+    </script>
     <footer>
     
         <p>&copy; 2024 PUTSCH. Tous droits réservés.</p>
