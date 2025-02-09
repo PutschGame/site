@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extension PUTSCH</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .header-logo {
+            height: 50px;
+            width: auto;
+            margin: 0;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 12px rgba(255, 140, 0, 0.3));
+            animation: headerGlowPulse 4s ease-in-out infinite;
+        }
+
+        .header-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        header {
+            background: var(--background-color);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tagline {
+            color: var(--text-color);
+            font-family: 'Crimson Text', serif;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .extension-section {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        .extension-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Crimson Text', serif;
+        }
+
+        .extension-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            font-family: 'Crimson Text', serif;
+        }
+
+        .play-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            background: #FFD700;
+            color: var(--background-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-family: 'Crimson Text', serif;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .play-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+            background: var(--secondary-color);
+        }
+
+        @keyframes headerGlowPulse {
+            0%, 100% {
+                filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6)) 
+                       drop-shadow(0 0 12px rgba(255, 140, 0, 0.3));
+            }
+            50% {
+                filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8)) 
+                       drop-shadow(0 0 16px rgba(255, 140, 0, 0.4));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .extension-section {
+                padding: 1rem;
+                margin: 2rem auto;
+            }
+
+            .extension-section h2 {
+                font-size: 2rem;
+            }
+
+            .extension-section p {
+                font-size: 1.1rem;
+            }
+
+            .play-button {
+                padding: 0.8rem 2rem;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="images/logojaune.svg" alt="PUTSCH" class="header-logo">
+                <p class="tagline">Le jeu de cartes où la stratégie rencontre la trahison</p>
+            </div>
+            <nav class="minimal-nav">
+                <a href="game.html" class="nav-link">Règles</a>
+                <a href="commande.html" class="nav-link">Commander</a>
+                <a href="communaute.html" class="nav-link">Communauté</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="extension-section">
+            <h2>Extension</h2>
+            <p>Découvrez de nouveaux décrets imaginés par la communauté PUTSCH ! Cette extension gratuite enrichit vos parties avec des cartes inédites, régulièrement mises à jour. Pour l'utiliser, remplacez simplement votre paquet de décrets par notre outil en ligne. À chaque tour, tirez une carte au hasard parmi notre collection grandissante pour plus de surprises tactiques !</p>
+            <a href="decrets.html" class="play-button">Tirer un Décret</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 PUTSCH. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

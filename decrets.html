@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Décrets PUTSCH</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .header-logo {
+            height: 50px;
+            width: auto;
+            margin: 0;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 12px rgba(255, 140, 0, 0.3));
+            animation: headerGlowPulse 4s ease-in-out infinite;
+        }
+
+        .header-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        header {
+            background: var(--background-color);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tagline {
+            color: var(--text-color);
+            font-family: 'Crimson Text', serif;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .decret-section {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        .counter {
+            font-size: 1.2rem;
+            color: #FFD700;
+            margin: 1rem 0;
+            font-family: 'Crimson Text', serif;
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .card-container {
+            position: relative;
+            width: 300px;
+            height: 420px;
+            margin: 2rem auto;
+            perspective: 1000px;
+        }
+
+        .card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .card-back {
+            background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+            border: 2px solid #FFD700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-back img {
+            width: 70%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .card-front {
+            background: linear-gradient(45deg, #2a2a2a, #1a1a1a);
+            border: 2px solid #FFD700;
+            transform: rotateY(180deg);
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            color: #FFD700;
+            margin: 0 auto 1.5rem;
+            font-family: 'Crimson Text', serif;
+            text-transform: uppercase;
+            text-align: center;
+            width: 100%;
+        }
+
+        .card-effect {
+            font-size: 1.3rem;
+            line-height: 1.5;
+            color: white;
+            font-family: 'Crimson Text', serif;
+            text-align: center;
+            margin: 0;
+            padding: 0 15px;
+        }
+
+        .card-cost {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #FFD700;
+            color: black;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .draw-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            background: #FFD700;
+            color: var(--background-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Crimson Text', serif;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .draw-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+            background: var(--secondary-color);
+        }
+
+        .draw-button:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .reset-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            background: transparent;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Crimson Text', serif;
+            letter-spacing: 1px;
+        }
+
+        .reset-button:hover {
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        @keyframes headerGlowPulse {
+            0%, 100% {
+                filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6)) 
+                       drop-shadow(0 0 12px rgba(255, 140, 0, 0.3));
+            }
+            50% {
+                filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8)) 
+                       drop-shadow(0 0 16px rgba(255, 140, 0, 0.4));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .decret-section {
+                padding: 1rem;
+                margin: 2rem auto;
+            }
+
+            .card-container {
+                width: 260px;
+                height: 364px;
+            }
+
+            .card-title {
+                font-size: 1.3rem;
+            }
+
+            .card-effect {
+                font-size: 1rem;
+            }
+
+            .draw-button {
+                padding: 0.8rem 2rem;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="images/logojaune.svg" alt="PUTSCH" class="header-logo">
+                <p class="tagline">Le jeu de cartes où la stratégie rencontre la trahison</p>
+            </div>
+            <nav class="minimal-nav">
+                <a href="game.html" class="nav-link">Règles</a>
+                <a href="extension.html" class="nav-link">Extension</a>
+                <a href="commande.html" class="nav-link">Commander</a>
+                <a href="communaute.html" class="nav-link">Communauté</a>
+            
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="decret-section">
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-face card-back">
+                        <img src="images/logojaune.svg" alt="Logo PUTSCH">
+                    </div>
+                    <div class="card-face card-front">
+                        <span class="card-cost"></span>
+                        <h3 class="card-title"></h3>
+                        <p class="card-effect"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons-container">
+                <p class="counter">Tour : <span id="turn-counter">0</span>/16</p>
+                <button class="draw-button">Tirer un Décret</button>
+                <button class="reset-button">Nouvelle Partie</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 PUTSCH. Tous droits réservés.</p>
+        <p>Merci de jouer au Jeu PUTSCH</p>
+    </footer>
+
+    <script>
+        const decrets = [
+            {
+                title: "Affolement",
+                effect: "Échangez la carte action jouée face cachée par celle de votre voisin de droite, prenez en connaissance avant la révélation.",
+                cost: "Set de base"
+            },
+            {
+                title: "Manigance",
+                effect: "Si vous avez joué ECLAIREUR, échangez un territoire d’un autre rebelle avec un de la pioche après la révélation.",
+                cost: "Set de base"
+            },
+            {
+                title: "Mouvement de foule",
+                effect: "Donnez un de vos territoires au choix au rebelle situé à votre DROITE avant la révélation.",
+                cost: "Set de base"
+            },
+
+            {
+                title: "Mouvement de foule",
+                effect: "Donnez un de vos territoires au choix au rebelle situé à votre GAUCHE avant la révélation.",
+                cost: "Set de base"
+            },
+            {
+                title: "Bienfaiteur",
+                effect: "Après la révélation, placez un de vos territoires au centre, le rebelle jouant la carte action avec le plus petit nombre les redistribue (1 max par rebelle).",
+                cost: "Set de base"
+            },
+            {
+                title: "Coup de pouce",
+                effect: "Les rebelles avec moins de 2 territoires, peuvent échanger une carte de leur main, par une carte de leur défausse.",
+                cost: "Extension"
+            },
+            {
+                title: "Perméable",
+                effect: "Si vous avez joué CACHETTE et êtes visé par plusieurs cartes, vous n’êtes immunisé qu’à la première attaque.",
+                cost: "Set de base"
+            },
+            {
+                title: "En terrain connu",
+                effect: "Si vous avez ÉCLAIREUR dans votre défausse, regardez le premier territoire de la pioche et reposez le dessus.",
+                cost: "Set de base"
+            },
+         
+            {
+                title: "Mécène",
+                effect: "Après la révélation, le rebelle avec le moins de territoires reçoit deux ors et en donne un au rebelle de son choix. ",
+                cost: "Set de base"
+            },
+            {
+                title: "Stratège",
+                effect: " Vous pouvez Payer un or pour échanger un de vos territoires avec un de la pioche après la révélation.",
+                cost: "Set de base"
+            },
+            {
+                title: "Voyante",
+                effect: " prévoyez la carte jouée par votre voisin de gauche, si vous avez raison à la fin du tour, récupérer un or.",
+                cost: "Set de base"
+            },
+            {
+                title: "Coup bas",
+                effect: "Après la révélation, le rebelle ayant joué la carte action avec le plus petit nombre vole un or à un autre rebelle.",
+                cost: "Set de base"
+            },
+            {
+                title: "Liquidation",
+                effect: " BRUTE ne coûte aucun or à ce tour.",
+                cost: "Set de base"
+            },
+            {
+                title: "Embourgeoisé",
+                effect: "si vous êtes visé par une carte BRUTE, vous pouvez payer un or à votre agresseur pour ne pas lui donner de territoire",
+                cost: "Set de base"
+            },
+            {
+                title: "Grosse bourde",
+                effect: "Toutes les cartes CACHETTE sont annulées à ce tour. ",
+                cost: "Set de base"
+            },
+            {
+                title: "Cartographe",
+                effect: "Les rebelles peuvent regarder un territoire de leur voisin de gauche.",
+                cost: "Extension"
+            },
+            {
+                title: "Révolution",
+                effect: "Les territoires volés ce tour-ci sont immédiatement révélés. ",
+                cost: "Extension"
+            },
+            {
+                title: "Chaos",
+                effect: "Les territoires volés ce tour sont distribués au hasard parmi les attaquants.",
+                cost: "Extension"
+            },
+            {
+                title: "Sacrifice",
+                effect: "Payez un or pour annuler l'effet du décret du prochain tour. ",
+                cost: "Extension"
+            },
+            {
+                title: "Taxation",
+                effect: "Les rebelles ayant un territoire face cachée doivent payer un or, sinon il est est révélé.",
+                cost: "Extension"
+            },
+
+            {
+                title: "Coalition",
+                effect: "Si plusieurs coffres sont joués à ce tour, ils rapportent un or supplémentaire",
+                cost: "Communauté - Proposé par Virgil"
+            },
+
+            {
+                title: "Opportunité",
+                effect: " Les cartes ÉCLAIREUR révèlent deux territoires au lieu d'un.",
+                cost: "Extension"
+            },
+            // Ajoutez d'autres cartes ici
+        ];
+
+        const drawButton = document.querySelector('.draw-button');
+        const resetButton = document.querySelector('.reset-button');
+        const card = document.querySelector('.card');
+        const turnCounter = document.getElementById('turn-counter');
+        
+        let canDraw = true;
+        let turnCount = 0;
+        let usedDecrets = new Set(); // Pour suivre les décrets déjà tirés
+
+        function drawCard() {
+            if (!canDraw || turnCount >= 16) return;
+            canDraw = false;
+
+            // Retourner la carte face cachée
+            card.classList.remove('flipped');
+
+            setTimeout(() => {
+                // Filtrer les décrets non utilisés
+                const availableDecrets = decrets.filter((_, index) => !usedDecrets.has(index));
+                
+                if (availableDecrets.length === 0) {
+                    alert("Tous les décrets ont été tirés !");
+                    return;
+                }
+
+                // Sélectionner une carte aléatoire parmi les disponibles
+                const randomIndex = Math.floor(Math.random() * availableDecrets.length);
+                const actualIndex = decrets.indexOf(availableDecrets[randomIndex]);
+                usedDecrets.add(actualIndex);
+                
+                const randomDecret = availableDecrets[randomIndex];
+
+                // Mettre à jour le contenu
+                const cardTitle = document.querySelector('.card-title');
+                const cardEffect = document.querySelector('.card-effect');
+                const cardCost = document.querySelector('.card-cost');
+
+                if (cardTitle && cardEffect && cardCost) {
+                    cardTitle.textContent = randomDecret.title;
+                    cardEffect.textContent = randomDecret.effect;
+                    cardCost.textContent = randomDecret.cost;
+                }
+
+                // Mettre à jour le compteur
+                turnCount++;
+                turnCounter.textContent = turnCount;
+
+                // Désactiver le bouton si on atteint 16 tours
+                if (turnCount >= 16) {
+                    drawButton.disabled = true;
+                }
+
+                // Retourner la carte face visible
+                card.classList.add('flipped');
+
+                // Réactiver le tirage après l'animation
+                setTimeout(() => {
+                    canDraw = true;
+                }, 600);
+            }, 600);
+        }
+
+        function resetGame() {
+            // Réinitialiser les variables
+            turnCount = 0;
+            usedDecrets.clear();
+            canDraw = true;
+            
+            // Réinitialiser l'interface
+            turnCounter.textContent = '0';
+            drawButton.disabled = false;
+            
+            // Retourner la carte face cachée
+            card.classList.remove('flipped');
+            
+            // Vider le contenu de la carte
+            const cardTitle = document.querySelector('.card-title');
+            const cardEffect = document.querySelector('.card-effect');
+            const cardCost = document.querySelector('.card-cost');
+            
+            if (cardTitle && cardEffect && cardCost) {
+                cardTitle.textContent = '';
+                cardEffect.textContent = '';
+                cardCost.textContent = '';
+            }
+        }
+
+        // Event listeners
+        drawButton.addEventListener('click', drawCard);
+        resetButton.addEventListener('click', resetGame);
+
+        // Initialiser le jeu au chargement
+        window.addEventListener('load', resetGame);
+    </script>
+</body>
+</html>
