@@ -291,90 +291,94 @@
     <script>
         const decrets = [
             {
-                title: "Affolement",
-                effect: "Échangez la carte action jouée face cachée par celle de votre voisin de droite, prenez en connaissance avant la révélation.",
+                title: "AFFOLEMENT",
+                effect: "Échangez la carte action jouée face cachée par celle de votre voisin de droite, prenez en connaissance avant la révélation",
                 cost: "Set de base"
             },
             {
-                title: "Manigance",
-                effect: "Si vous avez joué ECLAIREUR, échangez un territoire d’un autre rebelle avec un de la pioche après la révélation.",
+                title: "MANIGANCE",
+                effect: "Après la révélation, si vous avez joué ECLAIREUR, échangez le territoire d’un autre rebelle avec un de la pioche",
                 cost: "Set de base"
             },
             {
-                title: "Mouvement de foule",
-                effect: "Donnez un de vos territoires au choix au rebelle situé à votre DROITE avant la révélation.",
+                title: "MOUVEMENT DE FOULE",
+                effect: "Avant la révélation, donnez 1 de vos territoires au rebelle situé à votre droite ",
                 cost: "Set de base"
             },
-
+            {
+                title: "AGRESSIF",
+                effect: " Si vous avez joué BRUTE, choisissez le territoire volé même si votre cible possède des territoires non révélés",
+                cost: "Set de base"
+            },
             {
                 title: "Mouvement de foule",
                 effect: "Donnez un de vos territoires au choix au rebelle situé à votre GAUCHE avant la révélation.",
                 cost: "Set de base"
             },
             {
-                title: "Bienfaiteur",
-                effect: "Après la révélation, placez un de vos territoires au centre, le rebelle jouant la carte action avec le plus petit nombre les redistribue (1 max par rebelle).",
+                title: "BIENFAITEUR",
+                effect: "Après la révélation, placez un de vos territoires au centre, le rebelle jouant la carte action avec le plus petit nombre les redistribue (1 max par rebelle)",
                 cost: "Set de base"
             },
             {
-                title: "Coup de pouce",
-                effect: "Les rebelles avec moins de 2 territoires, peuvent échanger une carte de leur main, par une carte de leur défausse.",
+                title: "COUP DE POUCE",
+                effect: " Les rebelles avec moins de 2 territoires, peuvent échanger une carte de leur main, par une carte de leur défausse",
                 cost: "Extension"
             },
             {
-                title: "Perméable",
-                effect: "Si vous avez joué CACHETTE et êtes visé par plusieurs cartes, vous n’êtes immunisé qu’à la première attaque.",
+                title: "PERMÉABLE",
+                effect: "Si vous avez joué CACHETTE et êtes visé par plusieurs cartes, vous n’êtes immunisé qu’à la première attaque",
                 cost: "Set de base"
             },
             {
-                title: "En terrain connu",
-                effect: "Si vous avez ÉCLAIREUR dans votre défausse, regardez le premier territoire de la pioche et reposez le dessus.",
+                title: "EN TERRAIN CONNU",
+                effect: "Après la révélation, si vous avez ÉCLAIREUR dans votre défausse, regardez le 1er territoire de la pioche et reposez le dessus",
                 cost: "Set de base"
             },
          
             {
                 title: "Mécène",
-                effect: "Après la révélation, le rebelle avec le moins de territoires reçoit deux ors et en donne un au rebelle de son choix. ",
+                effect: "Après la révélation, le rebelle avec le moins de territoires gagne 2 or et en donne 1 à un rebelle de son choix. Annulé en cas d’égalité",
                 cost: "Set de base"
             },
             {
-                title: "Stratège",
-                effect: " Vous pouvez Payer un or pour échanger un de vos territoires avec un de la pioche après la révélation.",
+                title: "STRATÈGE",
+                effect: "Vous pouvez payer 1 or pour échanger un de vos territoires avec un de la pioche après la révélation",
                 cost: "Set de base"
             },
             {
-                title: "Voyante",
-                effect: " prévoyez la carte jouée par votre voisin de gauche, si vous avez raison à la fin du tour, récupérer un or.",
+                title: "VOYANTE",
+                effect: "Prévoyez la carte jouée par votre voisin de gauche, si vous avez raison à la fin du tour, récupérer 1 or",
                 cost: "Set de base"
             },
             {
-                title: "Coup bas",
-                effect: "Après la révélation, le rebelle ayant joué la carte action avec le plus petit nombre vole un or à un autre rebelle.",
+                title: "COUP BAS",
+                effect: "Après la révélation, le rebelle ayant joué la carte action avec le plus petit nombre vole 1 or à un autre rebelle",
                 cost: "Set de base"
             },
             {
-                title: "Liquidation",
-                effect: " BRUTE ne coûte aucun or à ce tour.",
+                title: "LIQUIDATION",
+                effect: "BRUTE ne coûte aucun or à ce tour",
                 cost: "Set de base"
             },
             {
-                title: "Embourgeoisé",
-                effect: "si vous êtes visé par une carte BRUTE, vous pouvez payer un or à votre agresseur pour ne pas lui donner de territoire",
+                title: "EMBOURGEOISE",
+                effect: "Si vous êtes visé par BRUTE, vous pouvez payer 1 or à votre agresseur pour ne pas lui donner de territoire",
                 cost: "Set de base"
             },
             {
-                title: "Grosse bourde",
-                effect: "Toutes les cartes CACHETTE sont annulées à ce tour. ",
+                title: "GROSSE BOURDE",
+                effect: " CACHETTE ne fonctionne pas à ce tour",
                 cost: "Set de base"
             },
             {
-                title: "Cartographe",
-                effect: "Les rebelles peuvent regarder un territoire de leur voisin de gauche.",
-                cost: "Extension"
+                title: "CARTOGRAPHE",
+                effect: "Avant la révélation, les rebelles peuvent regarder un territoire d’un autre rebelle",
+                cost: "Set de base"
             },
             {
-                title: "Révolution",
-                effect: "Les territoires volés ce tour-ci sont immédiatement révélés. ",
+                title: "OSTENTATOIRE",
+                effect: "Tout territoire récupéré à ce tour est immédiatement révélé ",
                 cost: "Extension"
             },
             {
@@ -383,26 +387,35 @@
                 cost: "Extension"
             },
             {
-                title: "Sacrifice",
-                effect: "Payez un or pour annuler l'effet du décret du prochain tour. ",
+                title: "Opportunité",
+                effect: " ÉCLAIREUR révèlent deux territoires au lieu d'un",
                 cost: "Extension"
             },
             {
-                title: "Taxation",
-                effect: "Les rebelles ayant un territoire face cachée doivent payer un or, sinon il est est révélé.",
+                title: "Trouble Fête",
+                effect: "Après la révélation, le rebelle ayant joué la carte action avec le plus grand nombre échange 1 territoire entre deux autres rebelles",
+                cost: "Extension"
+            },
+            {
+                title: "CORVÉE",
+                effect: " Les rebelles ayant au moins un territoire face cachée doivent payer 1 or, sinon il est est révélé",
                 cost: "Extension"
             },
 
             {
                 title: "Coalition",
-                effect: "Si plusieurs coffres sont joués à ce tour, ils rapportent un or supplémentaire",
+                effect: "COFFRE rapporte 1 or par carte COFFRE jouée ce tour, dans une limite de 3 ors",
                 cost: "Communauté - Proposé par Virgil"
             },
-
             {
-                title: "Opportunité",
-                effect: " Les cartes ÉCLAIREUR révèlent deux territoires au lieu d'un.",
-                cost: "Extension"
+                title: "Charité intéressée",
+                effect: "Le Rebelle ayant joué la carte action avec le plus grand nombre peut payez 1 or pour annuler l'effet du prochain décret",
+                cost: "Communauté - Proposé par Marine"
+            },
+            {
+                title: "DERNIER RECOURS",
+                effect: " le rebelle ayant joué la carte action avec le petit nombre, peut la remettre dans sa main",
+                cost: "Communauté - Proposé par Paul"
             },
             // Ajoutez d'autres cartes ici
         ];
