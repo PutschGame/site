@@ -109,7 +109,35 @@ body {
 main {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem 0;
+    padding: 2rem 0;.section-main {
+        background: rgba(26, 26, 46, 0.05);
+        margin: 2rem auto;
+        padding: 2rem;
+        border: none;
+    }
+    
+    .phase {
+        background: rgba(26, 26, 46, 0.05);
+        padding: 2rem;
+        margin: 2rem 0;
+        border: none;
+    }
+    
+    .card {
+        background: rgba(26, 26, 46, 0.05);
+        padding: 1.5rem;
+        border: none;
+    }
+    
+    /* Suppression des bordures sur les autres éléments */
+    h2 {
+        border-bottom: none;
+    }
+    
+    .reviews-section, .community-section {
+        border: none;
+        background: rgba(26, 26, 46, 0.05);
+    }
 }
 
 .section-main {
