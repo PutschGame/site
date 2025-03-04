@@ -6,6 +6,13 @@
     <title>Décrets PUTSCH</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #1a1a2e;
+            transition: background-color 0.6s ease;
+        }
+
         .header-logo {
             height: 50px;
             width: auto;
@@ -41,24 +48,37 @@
 
         .tagline {
             color: var(--text-color);
-            font-family: 'Crimson Text', serif;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
             margin: 0;
             font-size: 1.1rem;
         }
 
         .decret-section {
             max-width: 800px;
-            margin: 4rem auto;
+            margin: 0.5rem auto;
             padding: 2rem;
             text-align: center;
             color: var(--text-color);
+            position: relative;
         }
 
         .counter {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             color: #FFD700;
-            margin: 1rem 0;
-            font-family: 'Crimson Text', serif;
+            margin: 0 0 3rem 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        #turn-counter {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
         }
 
         .buttons-container {
@@ -66,15 +86,18 @@
             flex-direction: column;
             align-items: center;
             gap: 1rem;
-            margin-top: 2rem;
+            position: relative;
+            z-index: 2;
+            margin-top: 6rem;
         }
 
         .card-container {
             position: relative;
             width: 300px;
             height: 420px;
-            margin: 2rem auto;
+            margin: 0 auto;
             perspective: 1000px;
+            z-index: 1;
         }
 
         .card {
@@ -131,7 +154,8 @@
             font-size: 1.8rem;
             color: #FFD700;
             margin: 0 auto 1.5rem;
-            font-family: 'Crimson Text', serif;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
             text-transform: uppercase;
             text-align: center;
             width: 100%;
@@ -141,7 +165,8 @@
             font-size: 1.3rem;
             line-height: 1.5;
             color: white;
-            font-family: 'Crimson Text', serif;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
             text-align: center;
             margin: 0;
             padding: 0 15px;
@@ -155,7 +180,8 @@
             color: black;
             padding: 5px 10px;
             border-radius: 15px;
-            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
             font-size: 0.9rem;
         }
 
@@ -170,7 +196,8 @@
             border-radius: 5px;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-family: 'Crimson Text', serif;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
             letter-spacing: 1px;
             box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
         }
@@ -199,7 +226,8 @@
             border-radius: 5px;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-family: 'Crimson Text', serif;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
             letter-spacing: 1px;
         }
 
@@ -222,12 +250,28 @@
         @media (max-width: 768px) {
             .decret-section {
                 padding: 1rem;
-                margin: 2rem auto;
+                margin: 1rem auto;
+            }
+
+            .counter {
+                font-size: 1.2rem;
+                margin: 0 0 2rem 0;
+            }
+
+            #turn-counter {
+                font-size: 1.4rem;
             }
 
             .card-container {
                 width: 260px;
                 height: 364px;
+                margin: 0 auto 2rem;
+            }
+
+            .buttons-container {
+                margin-top: 8rem;
+                gap: 1rem;
+                padding-bottom: 2rem;
             }
 
             .card-title {
@@ -263,6 +307,7 @@
 
     <main>
         <section class="decret-section">
+            <p class="counter">Tour : <span id="turn-counter">0</span>/16</p>
             <div class="card-container">
                 <div class="card">
                     <div class="card-face card-back">
@@ -276,7 +321,6 @@
                 </div>
             </div>
             <div class="buttons-container">
-                <p class="counter">Tour : <span id="turn-counter">0</span>/16</p>
                 <button class="draw-button">Tirer un Décret</button>
                 <button class="reset-button">Nouvelle Partie</button>
             </div>
@@ -297,7 +341,7 @@
             },
             {
                 title: "MANIGANCE",
-                effect: "Après la révélation, si vous avez joué ECLAIREUR, échangez le territoire d’un autre rebelle avec un de la pioche",
+                effect: "Après la révélation, si vous avez joué ECLAIREUR, échangez le territoire d'un autre rebelle avec un de la pioche",
                 cost: "Set de base"
             },
             {
@@ -327,7 +371,7 @@
             },
             {
                 title: "PERMÉABLE",
-                effect: "Si vous avez joué CACHETTE et êtes visé par plusieurs cartes, vous n’êtes immunisé qu’à la première attaque",
+                effect: "Si vous avez joué CACHETTE et êtes visé par plusieurs cartes, vous n'êtes immunisé qu'à la première attaque",
                 cost: "Set de base"
             },
             {
@@ -338,7 +382,7 @@
          
             {
                 title: "Mécène",
-                effect: "Après la révélation, le rebelle avec le moins de territoires gagne 2 or et en donne 1 à un rebelle de son choix. Annulé en cas d’égalité",
+                effect: "Après la révélation, le rebelle avec le moins de territoires gagne 2 or et en donne 1 à un rebelle de son choix. Annulé en cas d'égalité",
                 cost: "Set de base"
             },
             {
@@ -373,7 +417,7 @@
             },
             {
                 title: "CARTOGRAPHE",
-                effect: "Avant la révélation, les rebelles peuvent regarder un territoire d’un autre rebelle",
+                effect: "Avant la révélation, les rebelles peuvent regarder un territoire d'un autre rebelle",
                 cost: "Set de base"
             },
             {
@@ -424,14 +468,23 @@
         const resetButton = document.querySelector('.reset-button');
         const card = document.querySelector('.card');
         const turnCounter = document.getElementById('turn-counter');
+        const body = document.body;
         
         let canDraw = true;
         let turnCount = 0;
         let usedDecrets = new Set(); // Pour suivre les décrets déjà tirés
 
+        function getRandomDarkColor() {
+            const hue = Math.floor(Math.random() * 360);
+            return `hsl(${hue}, 30%, 15%)`;
+        }
+
         function drawCard() {
             if (!canDraw || turnCount >= 16) return;
             canDraw = false;
+
+            // Changer la couleur de fond
+            body.style.backgroundColor = getRandomDarkColor();
 
             // Retourner la carte face cachée
             card.classList.remove('flipped');
@@ -487,6 +540,9 @@
             turnCount = 0;
             usedDecrets.clear();
             canDraw = true;
+            
+            // Réinitialiser la couleur de fond
+            body.style.backgroundColor = '#1a1a2e';
             
             // Réinitialiser l'interface
             turnCounter.textContent = '0';

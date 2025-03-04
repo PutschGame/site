@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PUTSCH - Le Jeu de Cartes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
         .header-logo {
@@ -41,7 +44,7 @@
 
         .tagline {
             color: var(--text-color);
-            font-family: 'Crimson Text', serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             font-size: 1.1rem;
         }
@@ -285,6 +288,17 @@
                 font-size: 20px;
             }
         }
+
+        .game-info .intro-text-specific {
+            color: #333;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center !important;
+            border-bottom: none;
+        }
     </style>
 </head>
 <body>
@@ -307,7 +321,7 @@
     
         <section id="presentation" class="section-main">
             <div class="game-info">
-                <h2 class="highlight-info">Dans un royaume lointain, un despote faisait autrefois régner la terreur. Affaibli, des forces rebelles émergent de l'ombre et rivalisent pour le pouvoir. Incarnez un·e des rebelles et unifiez une région sous votre bannière pour conquérir le royaume !</h2>
+                <h2 class="intro-text-specific">Dans un royaume lointain, un despote faisait autrefois régner la terreur. Affaibli, des forces rebelles émergent de l'ombre et rivalisent pour le pouvoir. Incarnez un·e des rebelles et unifiez une région sous votre bannière pour conquérir le royaume !</h2>
 
             </div>
 
@@ -376,7 +390,7 @@ Si aucun rebelle n'a réuni une région complète après les deux manches, le re
                 
                 <div class="cards-list">
                     <div class="card">
-                        <p> Chaque territoire appartient à une région, identifiable par sa couleur. Les territoires peuvent avoir deux états, <b>cachés</b> ou <b>révélés</b>. Quand un territoire est pioché, il est toujours face cachée, seul le rebelle qui les possède connaît sa couleur. Les territoires peuvent être révélés au cours de la partie, permettant ainsi à tous les rebelles de connaître leur couleur. Une fois un territoire révélé, il le reste, même s’il change de rebelle !
+                        <p> Chaque territoire appartient à une région, identifiable par sa couleur. Les territoires peuvent avoir deux états, <b>cachés</b> ou <b>révélés</b>. Quand un territoire est pioché, il est toujours face cachée, seul le rebelle qui les possède connaît sa couleur. Les territoires peuvent être révélés au cours de la partie, permettant ainsi à tous les rebelles de connaître leur couleur. Une fois un territoire révélé, il le reste, même s'il change de rebelle !
                         </p>
                     </div>
             
@@ -384,58 +398,57 @@ Si aucun rebelle n'a réuni une région complète après les deux manches, le re
         </section>
 
         <section id="cartes-actions" class="section-main">
-                <h2>Les Cartes Actions</h2>
+                <h2>Les Actions</h2>
 
                 <section class="floating-cards-section">
                     <div class="cards-container">
                         <div class="floating-card">
-                            <img src="images/violet putsch.png" alt="Card 1">
+                            <img src="images/putsch.png" alt="Card 1">
                         </div>
                         <div class="floating-card">
-                            <img src="images/violet éclaireur 28.png" alt="Card 2">
+                            <img src="images/eclaireur.png" alt="Card 2">
                         </div>
                         <div class="floating-card">
-                            <img src="images/violet cachette 18.png" alt="Card 3">
+                            <img src="images/cachette.png" alt="Card 3">
                         </div>
                         <div class="floating-card">
-                            <img src="images/violet brute 33.png" alt="Card 4">
+                            <img src="images/brute.png" alt="Card 4">
                         </div>
                         <div class="floating-card">
-                            <img src="images/violet coffre 8.png" alt="Card 5">
+                            <img src="images/coffre.png" alt="Card 5">
                         </div>
                         <div class="floating-card">
-                            <img src="images/violet discours 3.png" alt="Card 6">
+                            <img src="images/discours.png" alt="Card 6">
                         </div>
                     </div>
                 </section>
 
                 <div class="phase">
-                   <p>Chaque joueur possède le même ensemble de 9 cartes. Elles permettront de s'informer sur les territoires adverses, d’attaquer ou de se protéger de leur adversaires.  Certaines cartes nécessitent de payer de l’or pour être jouées. Si le rebelle ne peut pas payer, la carte jouée n’a aucun effet.</p>
+                   <p>Chaque joueur possède le même ensemble de 9 cartes. Elles permettront de s'informer sur les territoires adverses, d'attaquer ou de se protéger de leur adversaires.  Certaines cartes nécessitent de payer de l'or pour être jouées. Si le rebelle ne peut pas payer, la carte jouée n'a aucun effet.</p>
                 </div>
 
                 <div class="cards-list">
                     <div class="card">
                         <h3>BRUTE : 2 exemplaires - coût 1 or</h3>
                         <p>Annoncez le nom du rebelle visé quand vous révélez cette carte.
-                            Prenez lui un territoire. S’il possède au moins un territoire face cachée, il choisit le territoire. Si tous les territoires sont révélés, c’est vous qui choisissez le territoire récupéré.
+                            Prenez lui un territoire. S'il possède au moins un territoire face cachée, il choisit le territoire. Si tous les territoires sont révélés, c'est vous qui choisissez le territoire récupéré.
                             </p>
                 
                 
                         <h3>CACHETTE : 2 exemplaires</h3>
                         <p>Vous êtes protégé des cartes BRUTE et PUTSCH à ce tour.</p>
                
-               
-                        <h3>CCOFFRE : 2 exemplaires</h3>
+                        <h3>COFFRE : 2 exemplaires</h3>
                         <p>Vous récupérez une pièce d'or du royaume !</p>
                
                         <h3>DISCOURS : 1 exemplaire.</h3>
                         <p>Si aucun autre rebelle ne vous a visé à ce tour, piochez un territoire et laissez le face cachée.</p>
               
                         <h3>ECLAIREUR : 1 exemplaire</h3>
-                        <p>Annoncez le nom du joueur visé quand vous révélez cette carte. Regarder l’ensemble des territoires d’un autre joueur, puis retournez en un face visible parmi eux.</p>
+                        <p>Annoncez le nom du joueur visé quand vous révélez cette carte. Regarder l'ensemble des territoires d'un autre joueur, puis retournez en un face visible parmi eux.</p>
                
                         <h3>PUTSCH :  1 exemplaire - coût 2 ors puis 3 si réutilisé</h3>
-                        <p>Annoncez le nom du rebelle visé quand vous révélez cette carte. Échanger tous vos territoires avec ceux du joueur visé. Cette carte est priortaire sur toutes les autres, mais s’il y a plusieurs cartes PUTSCH jouées au même tour, tous les putsch sont annulés.</p>
+                        <p>Annoncez le nom du rebelle visé quand vous révélez cette carte. Échanger tous vos territoires avec ceux du joueur visé. Cette carte est priortaire sur toutes les autres, mais s'il y a plusieurs cartes PUTSCH jouées au même tour, tous les putsch sont annulés.</p>
                     </div>
                 </div>
         </section>
@@ -486,13 +499,13 @@ Si aucun rebelle n'a réuni une région complète après les deux manches, le re
                 </div>
                 <div class="phase">
                     <h3>La révélation</h3>
-                    <p>Après un décompte, tous les rebelles dévoilent simultanément leur carte. Si un rebelle joue une carte ciblant un autre joueur, son nom doit être annoncé distinctement lorsque la carte est retournée pour que l'effet soit valide. Si le nom est annoncé tardivement, l’effet de la carte est annulé. 
+                    <p>Après un décompte, tous les rebelles dévoilent simultanément leur carte. Si un rebelle joue une carte ciblant un autre joueur, son nom doit être annoncé distinctement lorsque la carte est retournée pour que l'effet soit valide. Si le nom est annoncé tardivement, l'effet de la carte est annulé. 
 <br> On résout ensuite les effets des cartes par ordre de priorité, indiqué en haut à droite de chaque carte, du plus grand nombre au plus petit. À la fin de chaque tour, les cartes jouées vont dans la défausse.                </p>
                 </div>
                 <div class="phase">
                     <h3>Enchainement des tours</h3>
-                    <p>Tant qu’il n’y a pas de vainqueur, les rebelles peuvent jouer jusqu’à 8 tours, de façon à ce que toutes les cartes action sauf une puissent être jouées. Si à la fin de ces 8 tours, aucun rebelle n’a 4 territoires de la même couleur, c'est la fin de la 1ère manche. Les rebelles jouent une 2nd et dernière manche. 
-                        Les rebelles récupèrent alors toutes leurs cartes actions, gardent leurs territoires, or et  récupèrent un or de plus. Les cartes décret piochées ne peuvent pas être rejouées. Les tours de la 2nd manche s'enchaînent. Si à la fin des 8 nouveaux tours, toujours aucun rebelle n’a gagné, le rebelle qui possède le plus de territoires, toutes couleurs confondues, remporte la partie !
+                    <p>Tant qu'il n'y a pas de vainqueur, les rebelles peuvent jouer jusqu'à 8 tours, de façon à ce que toutes les cartes action sauf une puissent être jouées. Si à la fin de ces 8 tours, aucun rebelle n'a 4 territoires de la même couleur, c'est la fin de la 1ère manche. Les rebelles jouent une 2nd et dernière manche. 
+                        Les rebelles récupèrent alors toutes leurs cartes actions, gardent leurs territoires, or et  récupèrent un or de plus. Les cartes décret piochées ne peuvent pas être rejouées. Les tours de la 2nd manche s'enchaînent. Si à la fin des 8 nouveaux tours, toujours aucun rebelle n'a gagné, le rebelle qui possède le plus de territoires, toutes couleurs confondues, remporte la partie !
                         </p>
 
                         <h3 class="ready-message">Vous savez tout, maintenant vous êtes prêt·e·s pour conquérir la couronne !</h3>
