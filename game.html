@@ -299,6 +299,21 @@
             text-align: center !important;
             border-bottom: none;
         }
+
+        .video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* Ratio 16:9 */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
     </style>
 </head>
 <body>
@@ -318,7 +333,11 @@
     
     <main>
         
-    
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/mLQtM6BZifM?si=9lRmL57OYSaS8kNX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        
+
         <section id="presentation" class="section-main">
             <div class="game-info">
                 <h2 class="intro-text-specific">Dans un royaume lointain, un despote faisait autrefois régner la terreur. Affaibli, des forces rebelles émergent de l'ombre et rivalisent pour le pouvoir. Incarnez un·e des rebelles et unifiez une région sous votre bannière pour conquérir le royaume !</h2>
